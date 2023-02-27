@@ -1,55 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:rave/my_home_page.dart';
 
-class  DisplayPage extends StatefulWidget {
-  //const ({Key? key}) : super(key: key);
+import 'express.dart';
 
-  @override
-  State<DisplayPage> createState() => _DisplayState();
-}
+class DisplayPage extends StatelessWidget {
+  const DisplayPage({super.key});
 
-class _DisplayState extends State<DisplayPage> {
+
+
   @override
   Widget build(BuildContext context) {
+    //String displaytext = express(userInput.text) as String;
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        child: Stack(
-          children: [
-            Positioned(
-              //top: 70,
-              child: Container(
-                width: width,
-                height: height,
-                decoration: const BoxDecoration(
-                  //borderRadius: BorderRadius.circular(30),
-                  color: Colors.redAccent,
-
-                ),
-                child: const RotatedBox(
-
-                  quarterTurns: 3,
-                  child: Center(
-                    child:  Text(
-                      "Hello",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 100,
-                      ),
-
-                    ),
-                  ),
-                ),
+      body: Stack(
+        children: [
+          Positioned(
+            //top: 70,
+            child: Container(
+              width: width,
+              height: height,
+              decoration: const BoxDecoration(
+                //borderRadius: BorderRadius.circular(30),
+                color: Colors.redAccent,
 
               ),
-            )
-          ],
-        ),
+              child: const RotatedBox(
+
+                quarterTurns: 3,
+                child: Center(
+                  child:  Text(
+                    "HeLLo",
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 100,
+                    ),
+
+                  ),
+                ),
+              ),
+
+            ),
+          )
+        ],
       ),
 
     );
-
-
   }
 }
+

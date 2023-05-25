@@ -9,7 +9,7 @@ class DisplayPage extends StatefulWidget {
 
     final String text;
 
-    DisplayPage({required this.text});
+     DisplayPage({required this.text});
 
 
 
@@ -30,6 +30,7 @@ class _displayPageState extends State<DisplayPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    Color _containerColor=Colors.black;
     return Scaffold(
 
       body: Stack(
@@ -37,18 +38,29 @@ class _displayPageState extends State<DisplayPage> {
         children: [
           Positioned(
             //top: 70,
-            child: Container(
-              width: width,
-              height: height,
-              decoration: const BoxDecoration(
-                //borderRadius: BorderRadius.circular(30),
-                color: Colors.redAccent,
-              ),
-              child:  RotatedBox(
-                quarterTurns: 3,
-                child: Center(
-                  child: buildAnimatedText(widget.text ?? "text")
+            child: Ink(
+              child: InkWell(
+                child: Container(
+                  width: width,
+                  height: height,
+                  color: _containerColor,
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Center(
+                      child: buildAnimatedText(widget.text),
+                    ),
+                  ),
                 ),
+
+                onTap: (){
+                  setState(() {
+                    _containerColor=_containerColor==Colors.black ?
+                        Colors.white12 :
+                        Colors.white12;
+
+                    print(widget.text);
+                  });
+                },
               ),
             ),
           )
@@ -62,9 +74,12 @@ class _displayPageState extends State<DisplayPage> {
       text: widget.text,
     style: const TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 80,
-        color: Colors.black54),
-    blankSpace: 80
+        fontSize: 70,
+        fontStyle: FontStyle.italic,
+        color: Colors.redAccent),
+    blankSpace: 80,
+      //accelerationCurve: Curves.linear,
+    velocity: 120,
   );
 
 

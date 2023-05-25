@@ -10,6 +10,7 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState("");
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   final userInput = TextEditingController();
   String text;
@@ -25,23 +26,20 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children:  [
-            TextField (
-
+          children: [
+            TextField(
               onChanged: (val) => text = val,
               decoration: const InputDecoration(
                 border: UnderlineInputBorder(),
                 hintText: "Enter a text to display...",
               ),
-            ),//
-
+            ), //
             TextButton(
               onPressed: () {
                 Navigator.push(
-                  context,
-
-                  MaterialPageRoute(builder: (context) => DisplayPage(text: text)));
-
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DisplayPage(text: text)));
               },
               child: const Text('Display'),
             )
@@ -51,4 +49,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
